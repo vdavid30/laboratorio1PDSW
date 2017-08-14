@@ -9,7 +9,7 @@ package Persistencia;
  *
  * @author Estevan
  */
-public abstract class Persistance {
+public class Persistance {
     
     public Persistance createPErmethod(){
         return null;
