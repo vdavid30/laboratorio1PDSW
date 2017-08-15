@@ -1,5 +1,6 @@
 
-package Persistencia;
+package edu.eci.arsw.wordprocessor.Persistencia;
+
 
 import edu.eci.arsw.wordprocessor.view.GuordMainFrame;
 import java.io.File;
@@ -19,8 +20,8 @@ import javax.swing.JTextArea;
  *
  * @author Estevan
  */
-public class SerialMethod {
-   private String defaultP="/tmp/";
+public class SerialMethod implements PerMethod {
+   private String defaultP="D:/";
    
    public void load(JTextArea texto){ 
         String name=null;
@@ -62,14 +63,14 @@ public class SerialMethod {
     
     public void save(JTextArea texto){
         // prompt the user to enter the file name
-        String name = JOptionPane.showInputDialog(this, "Enter file name.");
+        String name = JOptionPane.showInputDialog("Enter file names.");
         if (!name.endsWith(".guord")){
             name=name+".guord";
         }
         ObjectOutputStream oos=null;
         try {
             String body=texto.getText();        
-            oos = new ObjectOutputStream(new FileOutputStream(defaultP+name));
+            oos = new ObjectOutputStream(new FileOutputStream(defaultP+name));          
             oos.writeObject(body);
             oos.close();
         } catch (FileNotFoundException ex) {

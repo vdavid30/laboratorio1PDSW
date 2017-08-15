@@ -5,6 +5,7 @@
  */
 package edu.eci.arsw.wordprocessor.view;
 
+import edu.eci.arsw.wordprocessor.Persistencia.Persistance;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -136,31 +137,8 @@ public class GuordMainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
-        
-        // prompt the user to enter the file name
-        String name = JOptionPane.showInputDialog(this, "Enter file name.");
-        if (!name.endsWith(".guord")){
-            name=name+".guord";
-        }
-        ObjectOutputStream oos=null;
-        try {
-            String body=textArea.getText();        
-            oos = new ObjectOutputStream(new FileOutputStream(defaultPath+name));
-            oos.writeObject(body);
-            oos.close();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(GuordMainFrame.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(GuordMainFrame.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                oos.close();
-            } catch (IOException ex) {
-                Logger.getLogger(GuordMainFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        
-        
+        Persistance persis= new Persistance();
+        persis.createPerMethod().save(textArea);                      
     }//GEN-LAST:event_saveMenuItemActionPerformed
 
     private void loadMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadMenuItemActionPerformed

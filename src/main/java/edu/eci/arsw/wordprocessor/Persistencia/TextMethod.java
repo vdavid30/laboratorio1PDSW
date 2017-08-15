@@ -3,17 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Persistencia;
+package edu.eci.arsw.wordprocessor.Persistencia;
+
+import javax.swing.JTextArea;
 
 /**
  *
  * @author Estevan
  */
-public class TextMethod {
+public class TextMethod implements PerMethod{
     
-    public void load(){ 
+    public void load(JTextArea texto){ 
     }
     
-    public void save(){
+    public void save(JTextArea texto){
     }
 }

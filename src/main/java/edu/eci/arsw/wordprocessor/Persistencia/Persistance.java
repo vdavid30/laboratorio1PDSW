@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Persistencia;
+package edu.eci.arsw.wordprocessor.Persistencia;
+
 
 /**
  *
@@ -11,12 +12,14 @@ package Persistencia;
  */
 public class Persistance {
     
-    public Persistance createPErmethod(){
-        return null;
+    public PerMethod createPerMethod(){ 
+        Persistance metodo= new SerialCreator();
+        PerMethod serial= metodo.createPerMethod();
+        return serial;         
     }
     
-    public PerMethod getPerMethod(){
-        return null;
+    public Persistance getPerMethod(){
+       return null;
     }
     
     

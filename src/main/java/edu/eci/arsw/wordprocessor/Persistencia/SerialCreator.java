@@ -3,14 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Persistencia;
+package edu.eci.arsw.wordprocessor.Persistencia;
 
 /**
  *
  * @author Estevan
  */
-public class SerialCreator {
-     public Persistance createPErmethod(){
-        return null;
-    }
+public class SerialCreator extends Persistance {
+     
+    public PerMethod createPerMethod(){
+         PerMethod serial= new SerialMethod();
+        return serial;
+    }    
+    
 }
