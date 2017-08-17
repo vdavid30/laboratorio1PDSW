@@ -10,7 +10,7 @@ package Aplicacion;
  * @author hp
  */
 public class OnlineCorr implements CorrMethod{
-    public String correct(){
+    public String check(String word){
         String val = "";
         return val;
     }

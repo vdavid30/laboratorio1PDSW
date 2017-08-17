@@ -10,5 +10,5 @@ package Aplicacion;
  * @author hp
  */
 public interface CorrMethod {
-    public String correct();
+    public String check(String word);
 }

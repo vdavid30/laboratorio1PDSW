@@ -5,13 +5,32 @@
  */
 package Aplicacion;
 
+import java.util.LinkedHashMap;
+
 /**
  *
  * @author hp
  */
 public class StaticCorr implements CorrMethod {
-    public String correct(){
-        String val = "";
-        return val;
+    private final LinkedHashMap<String, String> engEquivalencesMap = new LinkedHashMap<>();
+
+    public String check(String word){
+        engEquivalencesMap.put("absolutly", "absolutely");
+        engEquivalencesMap.put("absorbsion", "absorption");
+        engEquivalencesMap.put("absorbtion", "absorption");
+        engEquivalencesMap.put("abudance", "abundance");
+        engEquivalencesMap.put("abundacies", "abundances");
+        engEquivalencesMap.put("abundancies", "abundances");
+        engEquivalencesMap.put("abundunt", "abundant");
+        engEquivalencesMap.put("abutts", "abuts");
+        engEquivalencesMap.put("acadamy", "academy");
+        engEquivalencesMap.put("acadmic", "academic");
+        engEquivalencesMap.put("accademic", "academic");
+        String res = engEquivalencesMap.get(word);
+        if (res == null) {
+            return null;
+        } else {
+            return res;
+        }
     }
 }

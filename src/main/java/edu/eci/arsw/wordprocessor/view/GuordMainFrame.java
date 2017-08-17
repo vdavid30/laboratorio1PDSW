@@ -6,6 +6,7 @@
 package edu.eci.arsw.wordprocessor.view;
 
 import edu.eci.arsw.wordprocessor.Persistencia.Persistance;
+import Aplicacion.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -27,9 +28,11 @@ import javax.swing.event.CaretListener;
  */
 public class GuordMainFrame extends javax.swing.JFrame {
 
-    private TypoCorrector tse=new TypoCorrector();
+    private CorrMethod  nMet=new StaticCorr();
     
     private String defaultPath="/tmp/";
+    
+    
         
     /**
      * Creates new form GuordMainFrame
@@ -53,8 +56,7 @@ public class GuordMainFrame extends javax.swing.JFrame {
 				else{
 					word=cnt.substring(lastspace+1,pos);	
 				}                                
-				String replacement=tse.check(word);
-				
+				String replacement =nMet.check(word);				
 				if (replacement!=null){
 					final String _word=word;
 					final String _replacement=replacement;
@@ -64,9 +66,7 @@ public class GuordMainFrame extends javax.swing.JFrame {
 							textArea.setText(textArea.getText().replace(_word, _replacement));
 						}
 					});
-				}
-
-								
+				}								
 			}
 		});
     }
